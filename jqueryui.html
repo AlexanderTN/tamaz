@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>jQuery UI Test</title>
+		<link rel="stylesheet" href="assets/jquery-ui/jquery-ui.css">
+		<script type="text/javascript" src="assets/jquery/jquery-3.3.1.min.js"></script>
+		<script src="assets/jquery-ui/jquery-ui.js"></script>
+		<style>
+			#little {
+				width: 300px;
+				height: 300px;
+				background-color: green;
+			}
+			#big {
+				width: 400px;
+				height: 400px;
+				background-color: blue;
+			}
+		</style>
+		<script>
+			$(function() {
+				$("#accordian").accordion()
+				//$("#accordian").sortable();
+				$("#accordian").disableSelection();
+				$("#sortable").sortable();
+				
+			});
+		</script>
+	</head>
+	<body>
+	
+		<div id="accordian">
+			<h3>Title 1</h3>
+			<div>
+				<p>
+				Norberto Susini has told people that he was Alex Rodriguez’s nephew for years – a familial link that was called into question after Susini was abducted Wednesday. 
+				</p>
+			</div>
+			<h2>Title 2</h2>
+			<div>
+				<p>
+				Norberto Susini has told people that he was Alex Rodriguez’s nephew for years – a familial link that was called into question after Susini was abducted Wednesday. 
+				</p>
+			</div>
+			<h1>Title 3</h1>
+			<div>
+				<p>
+				Norberto Susini has told people that he was Alex Rodriguez’s nephew for years – a familial link that was called into question after Susini was abducted Wednesday. 
+				</p>
+			</div>
+		</div>
+		
+		<ul id="sortable">
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+			<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+		</ul>
+		
+		<script>
+			
+				$("#resizable").draggable({ axis : "y" });
+				$("span").draggable({ containment: "parent"});
+				$("#resizable").resizable( {
+					grid: 50,
+					alsoResize: "#also",	
+					resize: function(event, ui){
+						if($("#resizable").width() >= 500)
+						{
+							alert("Hello, it is big enough, stop!!!");
+						}
+					}
+				} );
+				
+				$("#little").draggable();
+				$("#big").draggable();
+				$("#big").droppable({
+					drop: function(event, ui)
+					{
+						console.log(event);
+					}
+				});
+				
+		</script>
+	</body>
+</html>
